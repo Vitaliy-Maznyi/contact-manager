@@ -6,6 +6,11 @@ class Api::ContactsController < Api::BaseController
     render json: @contacts
   end
 
+  def show
+    @contact = @current_user.contacts.find(params[:id])
+    render json: @contact
+  end
+
   private
 
   def set_current_user
