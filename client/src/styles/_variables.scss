@@ -1,0 +1,19 @@
+//font-sizes
+$paragraph: 1.6rem;
+
+//devices
+$device-xs: 540px;
+$device-sm: 768px;
+$device-md: 992px;
+$device-lg: 1200px;
+$device-xl: 1600px;
+
+// breakpoints
+$responsive-breakpoints: (
+    xs: 540px,
+    sm: 768px,
+    md: 992px,
+    lg: 1200px,
+    xl: 1600px
+);
+
