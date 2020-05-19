@@ -1,10 +1,14 @@
 import React from 'react'
-import styles from './Layout.module.scss'
+import Container from 'react-bootstrap/Container'
+import Navbar from './Navbar'
 
 const Layout = ({ children }) => (
-  <div className={styles.contentContainer}>
-    {children}
-  </div>
+  <>
+    <Navbar />
+    <Container>
+      {children}
+    </Container>
+  </>
 )
 
 export default Layout
