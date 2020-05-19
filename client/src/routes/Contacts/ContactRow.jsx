@@ -6,13 +6,12 @@ import styles from './ContactRow.module.scss'
 const ContactRow = ({ contact }) => {
   return (
     <ListGroup.Item
-      key={contact.id}
       variant="light"
       href={`contacts/${contact.id}`}
       action
     >
       <div className={styles.contactRowContainer}>
-        <div>{`${contact.first_name} ${contact.last_name || ''}`}</div>
+        <div>{`${contact.firstName} ${contact.lastName || ''}`}</div>
         {contact.favourite && <Badge variant="success" pill>Favourite</Badge>}
       </div>
     </ListGroup.Item>

@@ -16,8 +16,8 @@ const Contact = () => {
 
   return (
     <div>
-      <p>{`${contact.first_name} ${contact.last_name || ''}`}</p>
-      <p>{contact.phone_number}</p>
+      <p>{`${contact.firstName} ${contact.lastName || ''}`}</p>
+      <p>{contact.phoneNumber}</p>
     </div>
   )
 }

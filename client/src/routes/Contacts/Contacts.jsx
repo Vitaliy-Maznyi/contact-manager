@@ -2,7 +2,6 @@ import React from 'react'
 import api from 'api'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { useFetch } from 'hooks'
-import { Layout } from 'components'
 import ContactRow from './ContactRow'
 
 const Contacts = () => {
@@ -14,13 +13,11 @@ const Contacts = () => {
   if (loading) return (<h1>Loading...</h1>)
 
   return (
-    <Layout>
-      <ListGroup variant="flush">
-        {contacts.map((contact) => (
-          <ContactRow contact={contact} />
-        ))}
-      </ListGroup>
-    </Layout>
+    <ListGroup variant="flush">
+      {contacts.map((contact) => (
+        <ContactRow key={contact.id} contact={contact} />
+      ))}
+    </ListGroup>
   )
 }
 
