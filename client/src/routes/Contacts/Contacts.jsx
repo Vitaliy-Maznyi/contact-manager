@@ -4,6 +4,7 @@ import { LoadingContainer } from 'components'
 import { CONTACTS_KEY } from 'store/storeKeys'
 import { fetchContacts } from 'modules/contacts'
 import { selectScopedContacts } from "modules/contacts/selectors"
+import { isEmpty } from 'lodash'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ContactRow from './ContactRow'
 import ScopeTabs from './ScopeTabs'
@@ -15,7 +16,7 @@ const Contacts = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (data.length === 0) {
+    if (isEmpty(data)) {
       dispatch(fetchContacts({ scope }))
     }
   }, [scope])

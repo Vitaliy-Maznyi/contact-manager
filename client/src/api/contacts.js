@@ -4,6 +4,6 @@ export const all = async (scope) => (
   axios.get('/api/contacts', { params: scope })
 )
 
-export const get = async (params) => (
-  axios.get(`/api/contacts/${params.id}`)
+export const get = async (id) => (
+  axios.get(`/api/contacts/${id}`)
 )
