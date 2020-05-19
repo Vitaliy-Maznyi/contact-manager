@@ -5,6 +5,8 @@ import {
   APPLY_CONTACTS_SCOPE,
 } from './actionTypes'
 
+import { contactsScopesKeys } from 'common/constants'
+
 const actions = {}
 
 actions[FETCH_CONTACTS_REQUEST] = (state) => (
@@ -14,14 +16,23 @@ actions[FETCH_CONTACTS_REQUEST] = (state) => (
   }
 )
 
-actions[FETCH_CONTACTS_SUCCESS] = (state, { payload }) => (
-  {
+actions[FETCH_CONTACTS_SUCCESS] = (state, { payload, scope }) => {
+  const contactsData = {
+    [contactsScopesKeys.ALL]: {
+      contacts: payload,
+    },
+    [contactsScopesKeys.FAVOURITES]: {
+      favouriteContacts: payload,
+    }
+  }
+
+  return {
     ...state,
-    contacts: payload,
+    ...contactsData[scope],
     loading: false,
     errors: [],
   }
-)
+}
 
 actions[FETCH_CONTACTS_ERROR] = (state, { payload }) => (
   {

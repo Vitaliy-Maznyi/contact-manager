@@ -8,9 +8,10 @@ export const fetchContactsRequest = () => ({
   type: FETCH_CONTACTS_REQUEST,
 })
 
-export const fetchContactsSuccess = (payload) => ({
+export const fetchContactsSuccess = (payload, scope) => ({
   type: FETCH_CONTACTS_SUCCESS,
   payload,
+  scope,
 })
 
 export const fetchContactsError = (errors) => ({

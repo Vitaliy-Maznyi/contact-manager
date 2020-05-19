@@ -14,7 +14,7 @@ export const fetchContacts = ({ scope }) => async dispatch => {
 
     const { data } = await api.contacts.all({ scope })
 
-    dispatch(fetchContactsSuccess(data))
+    dispatch(fetchContactsSuccess(data, scope))
   } catch (res) {
     if (res.data && res.data.errors) {
       dispatch(fetchContactsError(res.data.errors))

@@ -3,6 +3,7 @@ import actions from './actions'
 
 const initialState = {
   contacts: [],
+  favouriteContacts: [],
   loading: false,
   errors: [],
   scope: contactsScopesKeys.ALL,
