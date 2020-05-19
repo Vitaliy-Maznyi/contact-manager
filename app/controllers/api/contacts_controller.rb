@@ -2,7 +2,7 @@ class Api::ContactsController < Api::BaseController
   before_action :set_current_user
 
   def index
-    @contacts = @current_user.contacts
+    @contacts = ::Contacts::Loader.new(current_user: @current_user, scope: params[:scope]).perform
     render json: @contacts
   end
 

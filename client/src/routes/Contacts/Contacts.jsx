@@ -1,26 +1,30 @@
-import React from 'react'
-import api from 'api'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { LoadingContainer } from 'components'
+import { CONTACTS_KEY } from 'store/storeKeys'
+import { fetchContacts } from 'modules/contacts'
 import ListGroup from 'react-bootstrap/ListGroup'
-import { useFetch } from 'hooks'
 import ContactRow from './ContactRow'
 import ScopeTabs from './ScopeTabs'
 
 const Contacts = () => {
-  const [contacts, loading] = useFetch({
-    fetchMethod: api.contacts.all,
-    defaultResponse: [],
-  })
+  const { contacts, loading, scope } = useSelector(state => state[CONTACTS_KEY])
+  const dispatch = useDispatch()
 
-  if (loading) return (<h1>Loading...</h1>)
+  useEffect(() => {
+    dispatch(fetchContacts({ scope }));
+  }, [scope])
 
   return (
     <>
       <ScopeTabs />
-      <ListGroup variant="flush">
-        {contacts.map((contact) => (
-          <ContactRow key={contact.id} contact={contact} />
-        ))}
-      </ListGroup>
+      <LoadingContainer loading={loading}>
+        <ListGroup variant='flush'>
+          {contacts.map((contact) => (
+            <ContactRow key={contact.id} contact={contact} />
+          ))}
+        </ListGroup>
+      </LoadingContainer>
     </>
   )
 }

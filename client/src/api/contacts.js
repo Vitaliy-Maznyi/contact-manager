@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-export const all = async () => (
-  axios.get('/api/contacts')
+export const all = async (scope) => (
+  axios.get('/api/contacts', { params: scope })
 )
 
 export const get = async (params) => (
