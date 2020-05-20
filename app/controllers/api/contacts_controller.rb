@@ -21,6 +21,11 @@ class Api::ContactsController < Api::BaseController
     render json: @contact
   end
 
+  def destroy
+    @contact.destroy
+    render json: @contact
+  end
+
   private
 
   def contact_params

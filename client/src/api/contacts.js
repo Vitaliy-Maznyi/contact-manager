@@ -32,3 +32,7 @@ export const update = async (id, params) => (
     }
   })
 )
+
+export const remove = async (id) => (
+  await axios.delete(`/api/contacts/${id}`)
+)

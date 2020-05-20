@@ -79,7 +79,7 @@ const ContactForm = ({ initialValues, handleSubmitForm,  }) => (
                 />
               </Form.Group>
             </Form.Row>
-            <Button type='submit'>Add contact</Button>
+            <Button type='submit'>Save contact</Button>
           </Form>
         )}
       </Formik>
