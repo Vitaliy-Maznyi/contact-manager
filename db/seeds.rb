@@ -6,4 +6,4 @@ end
 user = User.find_by_email('john.doe@example.com')
 
 p "creating contact for user with email: 'john.doe@example.com'"
-Contact.create!(user: user, phone_number: '380939543298', first_name: 'Vitalii')
+Contact.create!(user: user, phone_number: '380931234567', first_name: 'John', last_name: 'Doe')
