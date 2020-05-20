@@ -6,7 +6,7 @@ import styles from './ContactRow.module.scss'
 const ContactRow = ({ contact }) => {
   return (
     <ListGroup.Item
-      variant="light"
+      variant='light'
       href={`contacts/${contact.id}`}
       action
     >

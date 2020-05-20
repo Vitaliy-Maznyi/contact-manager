@@ -8,6 +8,8 @@ import { Layout } from 'components'
 import {
   Contacts,
   Contact,
+  ContactNew,
+  ContactUpdate,
 } from 'routes'
 
 import PageNotFound from './PageNotFound'
@@ -22,6 +24,8 @@ const App = () => {
         <Layout>
           <Switch>
             <Route component={Contacts} path='/' exact />
+            <Route component={ContactNew} path='/contacts/new' exact />
+            <Route component={ContactUpdate} path='/contacts/:id/edit' exact />
             <Route component={Contact} path='/contacts/:id' />
             <Route component={PageNotFound} />
           </Switch>
